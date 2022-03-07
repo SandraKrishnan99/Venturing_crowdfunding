@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+<body>
+<h1 align="center">Complaint View</h1>
+<form action="/complaint_upto" method="post">
+<p align="center">DATE FROM:
+  <input type="date" name="date1" id="textfield" /> &nbsp; </p>
+<p align="center">TO :
+  <input name="date2" type="date" />
+</p>
+<div align="center">
+  <input name="input" value="Go" type="Submit" />
+</div>
+  <div align="center">
+    <table width="656" border="1" cellspacing="0">
+      <tr>
+             <th width="125" scope="col"><div align="center">SRno</div></th>
+        <th width="125" scope="col"><div align="center">Complaint</div></th>
+        <th width="75" scope="col"><div align="center">Date</div></th>
+        <th width="96" scope="col"><div align="center">From</div></th>
+{#        <th width="91" scope="col"><div align="center">Status</div></th>#}
+        <th width="113" scope="col"><div align="center"></div></th>
+      </tr>
+
+        {% for i in res %}
+      <tr>
+        <td height="133"><div align="center">{{ loop.index }}</div></td>
+        <td><div align="center"></div>{{i['Complaint'] }}</td>
+           <td><div align="center">{{ i['date'] }}</div></td>
+{#        <td><div align="center"></div></td>#}
+{#<td><div align="center">{{ i['Status'] }}</div></td>#}
+          <td>{{ i['Name'] }} <br> {{ i['Email']}} <br> {{ i['Phone'] }}</td>
+          {% if i['Status']=='pending' %}
+          <td><div align="center"><a href="/reply/{{ i["CId"] }}">Reply</a></div></td>
+
+      {% else %}
+      <td>{{ i['Reply'] }}</td>
+      {% endif %}
+      </tr>
+        {% endfor %}
+    </table>
+  </div>
+
+
+
+</form>
+</body>
+</html>

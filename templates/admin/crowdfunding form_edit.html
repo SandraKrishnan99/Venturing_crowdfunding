@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<h2 align="center">CrowdFunding_Form</h2>
+<form id="form1" name="form1" method="post" action="/crwdfunding_form_edit_post" enctype="multipart/form-data">
+<div align="center"></div>
+<div align="center">
+  <table width="529" border="1" cellspacing="0">
+    <tr>
+      <th width="303" scope="row">Buisness Name<input type="hidden" value="{{ r["ReqNo"] }}" name="ReqNo"/></th>
+      <td width="216">
+        <label for="textfield"></label>
+        <input type="text" name="textfield" id="textfield" value="{{ r["Buisness Name"] }}" />
+      </td>
+    </tr>
+    <tr>
+      <th scope="row"><strong>Address</strong></th>
+      <td>
+        <label for="textfield2"></label>
+        <input type="text" name="textfield2" id="textfield2"  value="{{ r["Address"] }}">
+      </td>
+    </tr>
+    <tr>
+      <th scope="row"><strong>City</strong></th>
+      <td>
+        <label for="textfield3"></label>
+        <input type="text" name="textfield3" id="textfield3" value="{{ r["City"] }}" />
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">Email</th>
+      <td>
+        <label for="textfield4"></label>
+        <input type="text" name="textfield4" id="textfield4" value="{{ r["Email"] }}"/>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">Website</th>
+      <td>
+        <label for="textfield5"></label>
+        <input type="text" name="textfield5" id="textfield5" value="{{ r["Website"] }}" />
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">Phone</th>
+      <td>
+        <label for="textfield6"></label>
+        <input type="text" name="textfield6" id="textfield6" value="{{ r["Phone"] }}"/>
+     </td>
+    </tr>
+    <tr>
+      <th scope="row">Check_One</th>
+      <td>
+        <label for="textfield7"></label>
+        <p>
+          <label>
+<input type="radio" name="RadioGroup1" value="debit" id="RadioGroup1_0" {% if r['Check_One']=='Debit' %}checked{% endif %}/>
+          </label>
+          Debit<br />
+          <label>
+            <input type="radio" name="RadioGroup1" value="credit" id="RadioGroup1_1" {% if r['Check_One']=='Credit' %}checked{% endif %}/>
+            Credit
+          </label>
+          <br />
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">Date</th>
+      <td>
+        <label for="textfield8"></label>
+        <input type="text" name="textfield8" id="textfield8" value="{{ r["Date"] }}" />
+      </td>
+    </tr>
+    <tr>
+      <th scope="row"><p>Amount</p></th>
+      <td>
+        <label for="textfield9"></label>
+        <input type="text" name="textfield9" id="textfield9" value="{{ r["Amount"] }}" />
+    </td>
+    </tr>
+    <tr>
+      <th scope="row">Description</th>
+      <td>
+        <label for="textfield10"></label>
+        <input type="text" name="textfield10" id="textfield10" value="{{ r["Description"] }}" />
+  </td>
+    </tr>
+  </table>
+
+    <input type="submit" name="button" id="button" value="Add" />
+
+</div>
+    </form>
+</body>
+</html>
+
+

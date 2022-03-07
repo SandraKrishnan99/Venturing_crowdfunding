@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<h1 align="center">CrowdFunding Form</h1>
+<form action="" method="get">
+  <table width="1647" height="238" border="1" cellspacing="0">
+    <tr>
+        <th width="138" scope="col"><h2 align="center">No.</h2></th>
+      <th width="242" height="91" scope="col"><h2 align="center">Buisness Name</h2>
+      </th>
+      <th width="138" scope="col"><h2 align="center">Address</h2></th>
+      <th width="75" scope="col"><h2 align="center">City</h2></th>
+      <th width="106" scope="col"><h2 align="center">Email</h2></th>
+      <th width="128" scope="col"><h2 align="center">Website</h2></th>
+      <th width="123" scope="col"><h2 align="center">Phone</h2></th>
+      <th width="165" scope="col"><h2 align="center">Check_in</h2></th>
+      <th width="100" scope="col"><h2 align="center">Date</h2></th>
+      <th width="159" scope="col"><h2 align="center">Amount</h2></th>
+      <th width="175" scope="col"><h2 align="center">Description</h2></th>
+
+    </tr>
+      {% for i in res %}
+    <tr>
+      <td><div align="center">{{ loop.index }}</div></td>
+      <td><div align="center">{{ i['Buisness Name'] }}</div></td>
+      <td><div align="center">{{ i['Address']}}</div></td>
+      <td><div align="center">{{ i['City'] }}</div></td>
+      <td><div align="center">{{ i['Email'] }}</div></td>
+      <td><div align="center">{{ i['Website'] }}</div></td>
+      <td><div align="center">{{ i['Phone'] }}</div></td>
+      <td><div align="center">{{ i['Check_One'] }}</div></td>
+      <td><div align="center">{{ i['Date'] }}</div></td>
+      <td><div align="center">{{ i['Amount'] }}</div></td>
+      <td><div align="center">{{ i['Description'] }}</div></td>
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+</body>
+</html>
