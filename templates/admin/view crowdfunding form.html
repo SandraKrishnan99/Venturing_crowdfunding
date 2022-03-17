@@ -1,29 +1,27 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Untitled Document</title>
-</head>
+{% extends 'admin/admin_panel.html' %}
+{% block body %}
+
 
 <body>
 <h1 align="center">CrowdFunding Form</h1>
 <form action="" method="get">
-  <table width="1647" height="238" border="1" cellspacing="0">
+  <table class="table table-striped">
     <tr>
-        <th width="242" height="91" scope="col"><h2 align="center">No.</h2>
-      <th width="242" height="91" scope="col"><h2 align="center">Buisness Name</h2>
+        <th width="242" height="91" scope="col"><h4 align="center">No.</h4>
+      <th width="242" height="91" scope="col"><h4 align="center">Buisness Name</h4>
       </th>
-      <th width="138" scope="col"><h2 align="center">Address</h2></th>
-      <th width="75" scope="col"><h2 align="center">City</h2></th>
-      <th width="106" scope="col"><h2 align="center">Email</h2></th>
-      <th width="128" scope="col"><h2 align="center">Website</h2></th>
-      <th width="123" scope="col"><h2 align="center">Phone</h2></th>
-      <th width="165" scope="col"><h2 align="center">Check_in</h2></th>
-      <th width="100" scope="col"><h2 align="center">Date</h2></th>
-      <th width="159" scope="col"><h2 align="center">Amount</h2></th>
-      <th width="175" scope="col"><h2 align="center">Description</h2></th>
-      <th width="190" scope="col"><h2 align="center"></h2></th>
-        <th width="190" scope="col"><h2 align="center"></h2></th>
+      <th width="138" scope="col"><h4 align="center">Address</h4></th>
+      <th width="75" scope="col"><h4 align="center">City</h4></th>
+      <th width="106" scope="col"><h4 align="center">Email</h4></th>
+      <th width="128" scope="col"><h4 align="center">Website</h4></th>
+      <th width="123" scope="col"><h4 align="center">Phone</h4></th>
+      <th width="165" scope="col"><h4 align="center">Check_in</h4></th>
+      <th width="100" scope="col"><h4 align="center">Date</h4></th>
+      <th width="159" scope="col"><h4 align="center">Amount</h4></th>
+      <th width="175" scope="col"><h4 align="center">Description</h4></th>
+      <th width="190" scope="col"><h4 align="center"></h4></th>
+        <th width="190" scope="col"><h4 align="center"></h4></th>
+        <th width="190" scope="col"><h4 align="center"></h4></th>
     </tr>
        {% for i in res %}
     <tr>
@@ -38,12 +36,13 @@
       <td><div align="center">{{ i['Date'] }}</div></td>
       <td><div align="center">{{ i['Amount'] }}</div></td>
       <td><div align="center">{{ i['Description'] }}</div></td>
-        <td><div align="center"><a href="/crwdfunding_form_edit/{{ i["ReqNo"] }}">Edit</a> </div></td>
+        <td><div align="center"><a href="/crwdfunding_form_edit/{{ i["ReqNo"] }}" class="btn btn-primary">Edit</a> </div></td>
       {#  <td><a href="/admin_response_crwdfunding/{{ i['ReqNo'] }}">Response</a></td> #}
-    <td><a href="/admin_delete_crwd_funding/{{ i["ReqNo"] }}">Delete</a></td>
+    <td><a href="/admin_delete_crwd_funding/{{ i["ReqNo"] }}" class="btn btn-danger">Delete</a></td>
+    <td><div align="center"><a href="/viewrespond" class="btn btn-primary">View Response</a></div></td>
     </tr>
        {% endfor %}
   </table>
 </form>
 </body>
-</html>
+{% endblock %}

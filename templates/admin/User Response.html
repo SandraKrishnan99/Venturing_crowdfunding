@@ -1,20 +1,16 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Untitled Document</title>
-</head>
+{% extends 'admin/admin_panel.html' %}
+{% block body %}
 
 <body>
 <h1 align="center">View User Investment(Response)</h1>
 <form action="" method="get">
 
   <div align="center">
-    <table width="302" border="1" cellspacing="0">
+    <table class="table table-striped">
       <tr>
-          <th width="84" scope="col">sno.</th>
-          <td>User info</td>
-        <th width="84" scope="col">Amount</th>
+          <th width="84" scope="col" >Sno.</th>
+          <th >User info</th>
+        <th width="84" scope="col" >Amount</th>
         <th width="208" scope="col">Date</th>
       </tr>
         {% for i in res %}
@@ -24,10 +20,10 @@
         <td>&nbsp;{{ i['Amount'] }}</td>
           <td>{{ i['Date'] }}&nbsp;</td>
       </tr>
-        {% endfor %} }
+        {% endfor %}
   </table>
   </div>
 
 </form>
 </body>
-</html>
+{% endblock %}

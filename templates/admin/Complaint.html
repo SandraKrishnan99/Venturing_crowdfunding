@@ -1,22 +1,19 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Untitled Document</title>
-</head>
+{% extends 'admin/admin_panel.html' %}
+{% block body %}
+
 <body>
 <h1 align="center">Complaint View</h1>
 <form action="/complaint_upto" method="post">
 <p align="center">DATE FROM:
-  <input type="date" name="date1" id="textfield" /> &nbsp; </p>
+  <input type="date" name="date1" id="textfield" class="form-control" /> &nbsp; </p>
 <p align="center">TO :
-  <input name="date2" type="date" />
+  <input name="date2" type="date" class="form-control" />
 </p>
 <div align="center">
-  <input name="input" value="Go" type="Submit" />
+  <input name="input" value="Go" type="Submit" class="btn btn-gradient-primary" />
 </div>
   <div align="center">
-    <table width="656" border="1" cellspacing="0">
+    <table class="table table-striped">
       <tr>
              <th width="125" scope="col"><div align="center">SRno</div></th>
         <th width="125" scope="col"><div align="center">Complaint</div></th>
@@ -49,4 +46,4 @@
 
 </form>
 </body>
-</html>
+{% endblock %}

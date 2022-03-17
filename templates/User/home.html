@@ -1,13 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
+{% extends 'user/userhome_panel.html' %}
+{% block body %}
 <body>
-    <a href="/reguser">User_Part_Registeration<br></a>
-    <a href="/viewcrowdfnd_user">View Crowdfunding form<br></a>
-    <a href="/complaintsend">Send Complaint<br></a>
-    <a href="/viewreply">View Reply</a>
+    <a href="/viewcrowdfnd_user" class="btn btn-primary">View Crowdfunding form</a>
+    <br>
+    <br>
+    <a href="/addamount" class="btn btn-primary">Add Amount</a>
+    <br>
+    <br>
+    <a href="/complaintsend" class="btn btn-primary">Send Complaint</a>
+    <br>
+    <br>
+    <a href="/viewreply" class="btn btn-primary">View Reply</a>
 </body>
-</html>
+
+{% endblock %}

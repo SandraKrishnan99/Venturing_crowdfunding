@@ -1,84 +1,232 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />#}
+{#<title>Registeration</title>#}
+{#<style>#}
+{#table{#}
+{#	border:2px solid black;}#}
+{#</style>#}
+{#</head>#}
+{##}
+{#<body>#}
+{#<h2 align="center">Registeration</h2>#}
+{#<form action="/reguser_post" method="post" enctype="multipart/form-data">#}
+{#<div align="center">#}
+{#  <table class="table table-striped">#}
+{#    <tr>#}
+{#      <th width="188" scope="row">#}
+{#      Name</th>#}
+{#      <td width="253">#}
+{#        <label for="textfield"></label>#}
+{#        <input type="text" name="textfield" class="form-control" required  id="textfield" />#}
+{#    </td>#}
+{#    </tr>#}
+{#      <tr>#}
+{#      <th height="81" scope="row">Place</th>#}
+{#      <td>#}
+{#        <label for="textfield2"></label>#}
+{#        <input type="text" name="textfield2" id="textfield2" class="form-control" required  />#}
+{#      </td>#}
+{#    </tr>#}
+{#      <tr>#}
+{#      <th scope="row">Post</th>#}
+{#      <td>#}
+{#        <label for="textfield3"></label>#}
+{#        <input type="text" name="textfield3" id="textfield3" class="form-control" required  />#}
+{#     </td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <th scope="row">Pin</th>#}
+{#      <td>#}
+{#        <label for="textfield4"></label>#}
+{#        <input type="number" name="textfield4" id="textfield4" class="form-control" required />#}
+{#      </td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <th scope="row">Phone</th>#}
+{#      <td>#}
+{#        <label for="textfield5"></label>#}
+{#        <input type="number" name="textfield5" id="textfield5" class="form-control" required  />#}
+{#     </td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <th scope="row">Email</th>#}
+{#      <td>#}
+{#        <label for="textfield6"></label>#}
+{#        <input type="email" name="textfield6" id="textfield6" class="form-control" required  />#}
+{#     </td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <th scope="row">Password</th>#}
+{#      <td>#}
+{#        <label for="textfield7"></label>#}
+{#        <input type="password" name="textfield7" id="textfield7" class="form-control" required  />#}
+{#      </td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <th height="81" scope="row">Reenter Password</th>#}
+{#      <td>#}
+{#        <label for="textfield8"></label>#}
+{#        <input type="password" name="textfield8" id="textfield8" class="form-control" required  />#}
+{#      </td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <th scope="row">Image</th>#}
+{#      <td><input name="textfield9" type="file" />&nbsp;</td>#}
+{#    </tr>#}
+{#  </table>#}
+{#  <input type="submit" name="button" id="button" value="Register" class="btn btn-primary" />#}
+{#</div>#}
+{#</form>#}
+{##}
+{#</body>#}
+{#</html>#}
+<html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Registeration</title>
-<style>
-table{
-	border:2px solid black;}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sign Up Form by Colorlib</title>
+
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="/static/signup/fonts/material-icon/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" href="/static/signup/vendor/nouislider/nouislider.min.css">
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="/static/signup/css/style.css">
 </head>
-
 <body>
-<h2 align="center">Registeration</h2>
-<form action="/reguser_post" method="post" enctype="multipart/form-data">
-<div align="center">
-  <table width="451" border="0" cellspacing="0">
-    <tr>
-      <th width="188" scope="row">
-      Name</th>
-      <td width="253">
-        <label for="textfield"></label>
-        <input type="text" name="textfield" id="textfield" />
-    </td>
-    </tr>
-      <tr>
-      <th height="81" scope="row">Place</th>
-      <td>
-        <label for="textfield2"></label>
-        <input type="text" name="textfield2" id="textfield2" />
-      </td>
-    </tr>
-      <tr>
-      <th scope="row">Post</th>
-      <td>
-        <label for="textfield3"></label>
-        <input type="text" name="textfield3" id="textfield3" />
-     </td>
-    </tr>
-    <tr>
-      <th scope="row">Pin</th>
-      <td>
-        <label for="textfield4"></label>
-        <input type="text" name="textfield4" id="textfield4" />
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">Phone</th>
-      <td>
-        <label for="textfield5"></label>
-        <input type="text" name="textfield5" id="textfield5" />
-     </td>
-    </tr>
-    <tr>
-      <th scope="row">Email</th>
-      <td>
-        <label for="textfield6"></label>
-        <input type="text" name="textfield6" id="textfield6" />
-     </td>
-    </tr>
-    <tr>
-      <th scope="row">Password</th>
-      <td>
-        <label for="textfield7"></label>
-        <input type="text" name="textfield7" id="textfield7" />
-      </td>
-    </tr>
-    <tr>
-      <th height="81" scope="row">Reenter Password</th>
-      <td>
-        <label for="textfield8"></label>
-        <input type="text" name="textfield8" id="textfield8" />
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">Image</th>
-      <td><input name="textfield9" type="file" />&nbsp;</td>
-    </tr>
-  </table>
-  <input type="submit" name="button" id="button" value="Register" />
-</div>
-</form>
 
-</body>
+    <div class="main">
+
+        <div class="container">
+            <div class="signup-content">
+                <div class="signup-img">
+                    <img src="static/signup/images/0304ece803caa1cddc142cb9a00b5e7f.jpg" alt="">
+                    <div class="signup-img-content">
+                        <h2>Register now </h2>
+                        <p>while seats are available !</p>
+                    </div>
+                </div>
+                <div class="signup-form">
+                    <form action="/reguser_post" method="post" enctype="multipart/form-data" class="register-form" id="register-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <div class="form-input">
+                                    <label for="first_name" class="required">Name</label>
+                                    <input type="text" required name="textfield" id="first_name" />
+                                </div>
+                                <div class="form-input">
+                                    <label for="last_name" class="required">Place</label>
+                                    <input type="text" required name="textfield2" id="last_name" />
+                                </div>
+                                <div class="form-input">
+                                    <label for="company" class="required">Post</label>
+                                    <input type="text" required name="textfield3" id="company" />
+                                </div>
+                                <div class="form-input">
+                                    <label for="email" class="required">Pin</label>
+                                    <input type="number" required name="textfield4" id="email" />
+                                </div>
+                                <div class="form-input">
+                                    <label for="phone_number" class="required">Phone number</label>
+                                    <input type="number" required name="textfield5" id="phone_number" />
+                                </div>
+
+                            </div>
+                            <div class="form-group">
+                                <div class="form-input">
+                                    <label for="phone_number" class="required">Email</label>
+                                    <input type="email" required name="textfield6" id="phone_number" />
+                                </div>
+                                <div class="form-input">
+                                    <label for="phone_number" class="required">Password</label>
+                                    <input type="password" required name="textfield7" id="phone_number" />
+                                </div>
+                                <div class="form-input">
+                                    <label for="phone_number" class="required">Re-Enter Password</label>
+                                    <input type="password" required name="textfield8" id="phone_number" />
+                                </div>
+                                <div class="form-input">
+                                    <label for="phone_number" required class="required">Image</label>
+                                    <input type="file" required name="textfield9" id="phone_number" />
+                                </div>
+{#                                <div class="form-select">#}
+{#                                    <div class="label-flex">#}
+{#                                        <label for="meal_preference">meal preference</label>#}
+{#                                        <a href="#" class="form-link">Lunch detail</a>#}
+{#                                    </div>#}
+{#                                    <div class="select-list">#}
+{#                                        <select name="meal_preference" id="meal_preference">#}
+{#                                            <option value="Vegetarian">Vegetarian</option>#}
+{#                                            <option value="Kosher">Kosher</option>#}
+{#                                            <option value="Asian Vegetarian">Asian Vegetarian</option>#}
+{#                                        </select>#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                                <div class="form-radio">#}
+{#                                    <div class="label-flex">#}
+{#                                        <label for="payment">Payment Mode</label>#}
+{#                                        <a href="#" class="form-link">Payment Detail</a>#}
+{#                                    </div>#}
+{#                                    <div class="form-radio-group">#}
+{#                                        <div class="form-radio-item">#}
+{#                                            <input type="radio" name="payment" id="cash" checked>#}
+{#                                            <label for="cash">Cash</label>#}
+{#                                            <span class="check"></span>#}
+{#                                        </div>#}
+{#                                        <div class="form-radio-item">#}
+{#                                            <input type="radio" name="payment" id="cheque">#}
+{#                                            <label for="cheque">Cheque</label>#}
+{#                                            <span class="check"></span>#}
+{#                                        </div>#}
+{#                                        <div class="form-radio-item">#}
+{#                                            <input type="radio" name="payment" id="demand">#}
+{#                                            <label for="demand">Demand Draf</label>#}
+{#                                            <span class="check"></span>#}
+{#                                        </div>#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                                <div class="form-input">#}
+{#                                    <label for="chequeno">DD / Cheque No.</label>#}
+{#                                    <input type="text" name="chequeno" id="chequeno" />#}
+{#                                </div>#}
+{#                                <div class="form-input">#}
+{#                                    <label for="blank_name">Drawn on ( Bank Name)</label>#}
+{#                                    <input type="text" name="blank_name" id="blank_name" />#}
+{#                                </div>#}
+{#                                <div class="form-input">#}
+{#                                    <label for="payable">Payable at</label>#}
+{#                                    <input type="text" name="payable" id="payable" />#}
+{#                                </div>#}
+                            </div>
+                        </div>
+{#                        <div class="donate-us">#}
+{#                            <label>Donate us</label>#}
+{#                            <div class="price_slider ui-slider ui-slider-horizontal">#}
+{#                                <div id="slider-margin"></div>#}
+{#                                <span class="donate-value" id="value-lower"></span>#}
+{#                            </div>#}
+{#                        </div>#}
+                        <div class="form-submit">
+                            <input type="submit" value="Submit" class="submit" id="submit" name="submit" />
+                            <input type="reset" value="Reset" class="submit" id="reset" name="reset" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- JS -->
+    <script src="/static/signup/vendor/jquery/jquery.min.js"></script>
+    <script src="/static/signup/vendor/nouislider/nouislider.min.js"></script>
+    <script src="/static/signup/vendor/wnumb/wNumb.js"></script>
+    <script src="/static/signup/vendor/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="/static/signup/vendor/jquery-validation/dist/additional-methods.min.js"></script>
+    <script src="/static/signup/js/main.js"></script>
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 </html>
+

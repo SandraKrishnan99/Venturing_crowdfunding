@@ -1,25 +1,20 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Untitled Document</title>
-</head>
-
+{% extends 'user/userhome_panel.html' %}
+{% block body %}
 <body>
 <h1 align="center">View Replay</h1>
 <form action="/viewreply_post" method="post">
     <table>
         <tr>
             <td>From</td>
-            <td><input type="date" name="d1"/></td>
+            <td><input type="date" name="d1" class="form-control"/></td>
             <td>To</td>
-            <td><input type="date" name="d2"/></td>
-            <td><input type="submit" name="s1" value="Go"/></td>
+            <td><input type="date" name="d2" class="form-control"/></td>
+            <td><input type="submit" name="s1" value="Go" class="btn btn-primary"/></td>
         </tr>
     </table>
     <p></p>
 
-    <table width="200" border="1" cellspacing="0">
+    <table class="table table-striped"">
       <tr>
         <th scope="col">&nbsp;S.No</th>
         <th scope="col">&nbsp;Complaint</th>
@@ -39,4 +34,4 @@
 </form>
 
 </body>
-</html>
+{% endblock %}

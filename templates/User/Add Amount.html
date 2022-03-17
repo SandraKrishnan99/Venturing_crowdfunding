@@ -1,0 +1,22 @@
+{% extends 'user/userhome_panel.html' %}
+{% block body %}
+
+<body>
+<h2 align="center">Add Amount</h2>
+<form action="/addamountpost" method="post">
+  <div align="center">
+    <table class="table table-striped">
+      <tr>
+        <th width="477" scope="col"><div align="center">
+          <input name="input" type="number" class="form-control" />
+            <input name="reqid" type="text" value="{{ reqid }}" hidden />
+        </div>
+        <input type="submit" name="button" id="button" value="Add" class="btn btn-primary"/></th>
+      </tr>
+  </table>
+  </div>
+
+
+</form>
+</body>
+{% endblock %}
