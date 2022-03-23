@@ -10,33 +10,36 @@ web3.eth.defaultAccount = web3.eth.accounts[0]
 
 compiled_contract_path = 'D:\\finalproject\\project\\build\\contracts\\Crowdfunding.json'
 deployed_contract_address = '0xf0ebb1dd39Edf620a253BCA22F9020046b7D776D'
-deployed_contract_address = web3.eth.accounts[5]
+deployed_contract_addressa = web3.eth.accounts[5]
 
 
 app = Flask(__name__)
 app.secret_key="kk"
 
-# @app.route('/test')
-# def test():
-#     with open(compiled_contract_path) as file:
-#         contract_json = json.load(file)  # load contract info as JSON
-#         contract_abi = contract_json['abi']  # fetch contract's abi - necessary to call its functions
-#         print(contract_abi)
-#     contract = web3.eth.contract(address=deployed_contract_address, abi=contract_abi)
-#     blocknumber = web3.eth.get_block_number()
-#     print(blocknumber)
-#
-#     reqid="reqid"
-#     policyid=1
-#     userid=67
-#     amount=99
-#     date="date"
-#
-#
-#     message2 = contract.functions.addTransaction(blocknumber + 1,policyid,userid,amount,date).transact()
-#
-#     print(message2)
-#     return "ok"
+@app.route('/test')
+def test():
+    with open(compiled_contract_path) as file:
+        contract_json = json.load(file)  # load contract info as JSON
+        contract_abi = contract_json['abi']  # fetch contract's abi - necessary to call its functions
+        print(contract_abi)
+    contract = web3.eth.contract(address=deployed_contract_addressa, abi=contract_abi)
+    blocknumber = web3.eth.get_block_number()
+    print(blocknumber)
+
+    reqid="reqid"
+    policyid=1
+    userid=67
+    amount=99
+    date="date"
+
+
+    message2 = contract.functions.addTransaction(policyid,policyid,userid,amount,date).transact()
+    # bob=deployed_contract_address
+    # tx_hash = contract.functions.transfer(bob, 100).transact({'from':deployed_contract_addressa })
+    # tx_receipt = web3.eth.wait_for_transaction_receipt(tx_hash)
+
+    print(message2)
+    return "ok"
 @app.route('/viewtest')
 def viewtest():
     # with open(compiled_contract_path) as file:
@@ -77,6 +80,11 @@ def login_post():
         if res["Type"]=="admin":
             return '''<script>alert('Success');window.location='/admin_panel'</script>'''
         elif(res["Type"]=="user"):
+
+            qry="SELECT `Name` FROM`user` WHERE `ULId`='"+ str(res["LId"])+"'"
+            d=Db()
+            res=d.selectOne(qry)
+            session["Name"]=res["Name"]
             return '''<script>alert('Success');window.location='/home2'</script>'''
 
         else:
@@ -154,8 +162,8 @@ def crowdfunding_post():
     res=db.insert(qry)
     return "<script>alert('Success');window.location='/crowdfunding'</script>"
 
-@app.route('/viewrespond')
-def viewrespond():
+@app.route('/viewrespond/<RaqId>')
+def viewrespond(RaqId):
     with open(compiled_contract_path) as file:
         contract_json = json.load(file)  # load contract info as JSON
         contract_abi = contract_json['abi']  # fetch contract's abi - necessary to call its functions
@@ -164,15 +172,25 @@ def viewrespond():
 
     blocknumber = web3.eth.get_block_number()
     print(blocknumber)
-    ls=[]
-    for i in range(20,18, -1):
+    lq=[]
+    for i in range(blocknumber-1,18, -1):
         a = web3.eth.get_transaction_by_block(i, 0)
         decoded_input = contract.decode_function_input(a['input'])
         print(decoded_input)
-        ls.append(decoded_input[1])
+        print("ku")
+        print(decoded_input)
+        lq.append(decoded_input[1])
 
-    print(ls)
-    return render_template('/admin/User Response.html')
+    print(lq)
+    tot=0
+    ls=[]
+    for i in lq:
+        print(i["policyida"])
+        if i["policyida"]==int(RaqId):
+            ls.append(i)
+
+            tot+=i["amounta"]
+    return render_template('/admin/User Response.html',ls=ls,total=tot)
 @app.route('/registered')
 def reg():
     d=Db()
@@ -270,10 +288,46 @@ def complaintsend_post():
     return "'<script>alert('Success');window.location='/complaintsend'</script>'"
 @app.route('/addamount/<reqid>')
 def addamount(reqid):
-    return render_template('user/Add Amount.html',reqid=reqid)
+    print("reeeeeee",reqid)
+    qry="SELECT Amount FROM `crowdfunding_request`WHERE`ReqNo`='"+reqid+"'"
+    d=Db()
+    print(qry)
+    res=d.selectOne(qry)
+    amt=str(res["Amount"])
+
+
+
+    with open(compiled_contract_path) as file:
+        contract_json = json.load(file)  # load contract info as JSON
+        contract_abi = contract_json['abi']  # fetch contract's abi - necessary to call its functions
+
+    contract = web3.eth.contract(address=deployed_contract_address, abi=contract_abi)
+
+    blocknumber = web3.eth.get_block_number()
+    print(blocknumber)
+    lq=[]
+    for i in range(blocknumber-1,18, -1):
+        a = web3.eth.get_transaction_by_block(i, 0)
+        decoded_input = contract.decode_function_input(a['input'])
+        print(decoded_input)
+        print("ku")
+        print(decoded_input)
+        lq.append(decoded_input[1])
+
+    print(lq)
+    tot=0
+    ls=[]
+    for i in lq:
+        print(i["policyida"])
+        if i["policyida"]==int(reqid):
+            ls.append(i)
+
+            tot+=i["amounta"]
+    return render_template('user/Add Amount.html',reqid=reqid,amount=float(amt),tot=float(tot))
 @app.route('/addamountpost',methods=["post"])
 def addamountpost():
     rid=request.form["reqid"]
+    print(rid)
     with open(compiled_contract_path) as file:
         contract_json = json.load(file)  # load contract info as JSON
         contract_abi = contract_json['abi']  # fetch contract's abi - necessary to call its functions
@@ -285,14 +339,16 @@ def addamountpost():
     reqid = "reqid"
     # reqid = reqid
     policyid = int(rid)
+    print(policyid)
     userid = int(session["lid"])
     amount = int(request.form["input"])
     date = "date"
-
-    message2 = contract.functions.addTransaction(blocknumber + 1, policyid, userid, amount, date).transact()
+    print(policyid)
+    # message2 = contract.functions.addTransaction(blocknumber + 1, policyid, userid, amount, date).transact()
+    message2 = contract.functions.addTransaction(policyid, policyid, userid, amount, date).transact()
 
     print(message2)
-    return "ok"
+    return "<script>alert('Success');window.location='/viewcrowdfnd_user'</script>"
 
 @app.route('/viewreply')
 def viewreply():
